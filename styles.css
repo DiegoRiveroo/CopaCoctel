@@ -1,0 +1,829 @@
+:root {
+    --bg1: #ff3d8b;
+    --bg2: #6c38ff;
+    --bg3: #00d4ff;
+    --ink: #171326;
+    --white: #fff;
+    --yellow: #ffe45e;
+    --green: #3cffb5;
+    --pink: #ff4fb8;
+    --blue: #48e4ff;
+    --purple: #7b4dff;
+    --card: rgba(255,255,255,.92);
+    --shadow: 0 18px 45px rgba(20, 10, 60, .25);
+    --radius: 26px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    background:
+            radial-gradient(circle at top left, #ffe45e 0 12%, transparent 30%),
+            radial-gradient(circle at top right, #00d4ff 0 12%, transparent 32%),
+            linear-gradient(135deg, var(--bg1), var(--bg2) 55%, var(--bg3));
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+            radial-gradient(circle, rgba(255,255,255,.22) 2px, transparent 3px);
+    background-size: 34px 34px;
+    mix-blend-mode: overlay;
+}
+
+.top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    gap: 10px;
+    padding: 14px;
+    justify-content: center;
+    backdrop-filter: blur(14px);
+    background: rgba(255,255,255,.28);
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 900;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--white);
+    box-shadow: 0 8px 0 rgba(0,0,0,.14);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.top-nav a:active {
+    transform: translateY(5px);
+    box-shadow: 0 3px 0 rgba(0,0,0,.14);
+}
+
+.page {
+    width: min(1100px, 94vw);
+    margin: 0 auto;
+    padding: 26px 0 60px;
+}
+
+.hero {
+    text-align: center;
+    padding: 32px 18px 24px;
+    color: white;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin: 0 0 12px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: var(--yellow);
+    color: var(--ink);
+    font-weight: 1000;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    box-shadow: 0 7px 0 rgba(0,0,0,.18);
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    line-height: .9;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+    text-shadow: 0 8px 0 rgba(0,0,0,.2);
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    font-weight: 800;
+    max-width: 720px;
+    margin: 18px auto 0;
+}
+
+.panel,
+.tv-card,
+.final-card {
+    background: var(--card);
+    border: 4px solid rgba(255,255,255,.75);
+    border-radius: var(--radius);
+    padding: 22px;
+    margin: 18px 0;
+    box-shadow: var(--shadow);
+}
+
+.live-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: linear-gradient(135deg, #fff, #fff2a8);
+}
+
+.label {
+    margin: 0;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: 1000;
+    color: #6c38ff;
+}
+
+h2 {
+    margin: 6px 0 10px;
+    font-size: clamp(1.35rem, 4vw, 2rem);
+}
+
+.status-pill {
+    display: inline-block;
+    margin: 0;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 1000;
+    background: var(--green);
+    color: var(--ink);
+}
+
+.status-pill.closed {
+    background: #ff7a7a;
+}
+
+button {
+    border: 0;
+    border-radius: 18px;
+    padding: 14px 20px;
+    font-weight: 1000;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--ink);
+    background: var(--yellow);
+    box-shadow: 0 8px 0 rgba(0,0,0,.2);
+    transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+
+button:hover {
+    filter: brightness(1.05);
+}
+
+button:active {
+    transform: translateY(5px);
+    box-shadow: 0 3px 0 rgba(0,0,0,.2);
+}
+
+form {
+    display: grid;
+    gap: 16px;
+}
+
+label {
+    display: grid;
+    gap: 7px;
+    font-weight: 1000;
+}
+
+input,
+select {
+    width: 100%;
+    border: 3px solid #241a46;
+    border-radius: 18px;
+    padding: 14px 16px;
+    font-size: 1rem;
+    background: white;
+    font-weight: 800;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 5px rgba(255,79,184,.18);
+}
+
+.criteria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.form-status {
+    margin: 0;
+    padding: 14px 16px;
+    border-radius: 18px;
+    font-weight: 1000;
+    background: rgba(255,255,255,.7);
+}
+
+.form-status.success {
+    background: var(--green);
+}
+
+.form-status.warning {
+    background: #ffb3b3;
+}
+
+.progress-card {
+    background: #f1f5ff;
+    border: 3px dashed var(--purple);
+    border-radius: 20px;
+    padding: 14px;
+}
+
+.warning-card {
+    border-color: #ff3d3d;
+    background: #ffe5e5;
+}
+
+.drinks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+    perspective: 1000px;
+}
+
+.drink-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, #ffffff 0%, #fff4c7 100%);
+    border: 5px solid #21183d;
+    border-radius: 28px;
+    padding: 20px;
+    min-height: 250px;
+    box-shadow:
+            0 12px 0 rgba(0,0,0,.22),
+            0 26px 40px rgba(30,10,80,.25);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    isolation: isolate;
+}
+
+.drink-card::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background:
+            radial-gradient(circle, rgba(255,255,255,.95) 0 2px, transparent 3px),
+            linear-gradient(135deg, rgba(255,255,255,.25), transparent);
+    background-size: 28px 28px, 100% 100%;
+    transform: rotate(12deg);
+    z-index: -1;
+    opacity: .55;
+}
+
+.drink-card::after {
+    content: "Copa";
+    position: absolute;
+    top: 14px;
+    right: -34px;
+    rotate: 35deg;
+    width: 130px;
+    text-align: center;
+    padding: 6px 0;
+    background: #ffe45e;
+    color: #21183d;
+    font-weight: 1000;
+    text-transform: uppercase;
+    font-size: .72rem;
+    letter-spacing: .1em;
+    border: 2px solid #21183d;
+}
+
+.drink-card:hover {
+    transform: translateY(-6px) rotate(-1.5deg) scale(1.025);
+    box-shadow:
+            0 18px 0 rgba(0,0,0,.2),
+            0 32px 55px rgba(30,10,80,.3);
+}
+
+.drink-card:nth-child(5n+1) {
+    background: linear-gradient(160deg, #fff6a8, #ff9ed1);
+}
+
+.drink-card:nth-child(5n+2) {
+    background: linear-gradient(160deg, #d7f7ff, #9fffe0);
+}
+
+.drink-card:nth-child(5n+3) {
+    background: linear-gradient(160deg, #e5d9ff, #ffb3ec);
+}
+
+.drink-card:nth-child(5n+4) {
+    background: linear-gradient(160deg, #ffe0a3, #ff7aaa);
+}
+
+.drink-card:nth-child(5n+5) {
+    background: linear-gradient(160deg, #bdf7ff, #ffe45e);
+}
+
+.drink-icon {
+    width: 64px;
+    height: 64px;
+    display: grid;
+    place-items: center;
+    font-size: 2.4rem;
+    background: white;
+    border: 4px solid #21183d;
+    border-radius: 20px;
+    box-shadow: 0 7px 0 rgba(0,0,0,.2);
+    margin-bottom: 18px;
+}
+
+.drink-card h3 {
+    margin: 0 0 10px;
+    font-size: clamp(1.45rem, 5vw, 2.1rem);
+    line-height: .9;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    max-width: 85%;
+}
+
+.drink-card .drink-meta {
+    display: inline-block;
+    margin: 6px 0 14px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: white;
+    border: 3px solid #21183d;
+    font-weight: 1000;
+    color: #21183d;
+    box-shadow: 0 5px 0 rgba(0,0,0,.15);
+}
+
+.drink-card p:not(.drink-meta) {
+    font-weight: 800;
+    line-height: 1.35;
+    margin: 10px 0 0;
+    color: #21183d;
+}
+
+.disabled-card {
+    opacity: .45;
+    filter: grayscale(.7);
+    transform: scale(.96);
+}
+
+.disabled-card::after {
+    content: "Votado";
+    background: #ddd;
+}
+
+.rank-card,
+.tv-rank-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: white;
+    border: 3px solid #241a46;
+    border-radius: 22px;
+    padding: 14px 16px;
+    margin: 10px 0;
+    box-shadow: 0 7px 0 rgba(0,0,0,.14);
+}
+
+.rank-number,
+.medal {
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+.rank-name {
+    font-weight: 1000;
+    font-size: 1.15rem;
+}
+
+.rank-points,
+.tv-rank-item strong {
+    background: var(--yellow);
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-weight: 1000;
+}
+
+.ranking-body {
+    background:
+            radial-gradient(circle at 10% 10%, #ffe45e 0 10%, transparent 22%),
+            radial-gradient(circle at 90% 10%, #3cffb5 0 9%, transparent 22%),
+            linear-gradient(135deg, #ff3d8b, #6c38ff 55%, #00d4ff);
+}
+
+.tv-frame {
+    width: min(1280px, 94vw);
+    margin: 0 auto;
+    padding: 28px 0 70px;
+}
+
+.tv-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.tv-header h1 {
+    font-size: clamp(2.4rem, 6vw, 5.5rem);
+}
+
+.round-badge {
+    background: var(--yellow);
+    color: var(--ink);
+    padding: 14px 18px;
+    border-radius: 999px;
+    font-weight: 1000;
+    box-shadow: 0 8px 0 rgba(0,0,0,.18);
+}
+
+.tv-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1.3fr .8fr .8fr;
+    gap: 16px;
+}
+
+.tv-card.big {
+    min-height: 320px;
+}
+
+.big-number {
+    font-size: 3rem;
+    font-weight: 1000;
+}
+
+.rounds-grid,
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 14px;
+}
+
+.mini-round,
+.award-card {
+    background: white;
+    border: 3px solid #241a46;
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 7px 0 rgba(0,0,0,.14);
+}
+
+.mini-rank {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-weight: 900;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.reveal-controls {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin: 22px 0;
+}
+
+.secondary-btn {
+    background: white;
+}
+
+.final-card {
+    text-align: center;
+    background: linear-gradient(135deg, #ffe45e, #3cffb5);
+}
+
+.final-card p {
+    margin: 0;
+    font-weight: 1000;
+    text-transform: uppercase;
+}
+
+.final-card h2 {
+    font-size: clamp(2.2rem, 7vw, 5rem);
+}
+
+.reveal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background:
+            radial-gradient(circle at 30% 20%, #ffe45e 0 12%, transparent 30%),
+            linear-gradient(135deg, #ff3d8b, #6c38ff 55%, #00d4ff);
+    color: white;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.reveal-overlay p {
+    position: absolute;
+    top: 30px;
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+}
+
+.reveal-overlay h2 {
+    font-size: clamp(3rem, 12vw, 9rem);
+    margin: 0;
+    text-shadow: 0 10px 0 rgba(0,0,0,.22);
+}
+
+.reveal-overlay h3 {
+    font-size: clamp(2rem, 9vw, 7rem);
+    margin: 8px 0;
+    text-transform: uppercase;
+    text-shadow: 0 8px 0 rgba(0,0,0,.2);
+}
+
+.reveal-overlay span {
+    font-size: 1.4rem;
+    font-weight: 1000;
+    background: var(--yellow);
+    color: var(--ink);
+    padding: 12px 20px;
+    border-radius: 999px;
+}
+
+.scene-pop {
+    animation: pop .45s cubic-bezier(.2, 1.4, .4, 1);
+}
+
+@keyframes pop {
+    from {
+        transform: scale(.7) rotate(-3deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+.screen-mode .top-nav {
+    display: none;
+}
+
+.screen-mode .tv-frame {
+    width: min(1500px, 96vw);
+    padding-top: 36px;
+}
+
+.screen-mode .tv-card {
+    background: rgba(255,255,255,.94);
+}
+
+@media (max-width: 900px) {
+    .criteria,
+    .tv-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .live-panel,
+    .tv-header {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: clamp(2.4rem, 14vw, 4.5rem);
+    }
+
+    .top-nav {
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 520px) {
+    .page,
+    .tv-frame {
+        width: 92vw;
+    }
+
+    .panel,
+    .tv-card {
+        padding: 16px;
+        border-radius: 22px;
+    }
+
+    .rank-card,
+    .tv-rank-item {
+        align-items: flex-start;
+    }
+
+    .rank-points,
+    .tv-rank-item strong {
+        font-size: .85rem;
+    }
+}
+body.round-1 {
+    background:
+            radial-gradient(circle at 15% 12%, #ffe45e 0 9%, transparent 24%),
+            radial-gradient(circle at 85% 18%, #fff 0 3%, transparent 12%),
+            linear-gradient(135deg, #4b2cff, #a64dff 45%, #ff4fb8);
+}
+
+body.round-2 {
+    background:
+            radial-gradient(circle at 12% 18%, #ff3d8b 0 10%, transparent 25%),
+            radial-gradient(circle at 88% 12%, #48e4ff 0 9%, transparent 24%),
+            linear-gradient(135deg, #190029, #6c38ff 45%, #ff2f7d);
+}
+
+body.round-3 {
+    background:
+            radial-gradient(circle at 12% 16%, #ffe45e 0 12%, transparent 26%),
+            radial-gradient(circle at 88% 12%, #3cffb5 0 9%, transparent 24%),
+            linear-gradient(135deg, #16101f, #6b3b00 48%, #ffb800);
+}
+
+body.round-1 .eyebrow {
+    background: #ffe45e;
+}
+
+body.round-2 .eyebrow {
+    background: #48e4ff;
+}
+
+body.round-3 .eyebrow {
+    background: #3cffb5;
+}
+
+body.round-1 .drink-card {
+    background: linear-gradient(160deg, #fff6a8, #d9c4ff);
+}
+
+body.round-2 .drink-card {
+    background: linear-gradient(160deg, #ff9ed1, #a4d8ff);
+}
+
+body.round-3 .drink-card {
+    background: linear-gradient(160deg, #ffe45e, #ff9f1c);
+}
+
+.edition-badge {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: #21183d;
+    color: white;
+    font-size: .75rem;
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    box-shadow: 0 5px 0 rgba(0,0,0,.18);
+}
+
+body.round-1 .edition-badge {
+    background: #6c38ff;
+}
+
+body.round-2 .edition-badge {
+    background: #ff2f7d;
+}
+
+body.round-3 .edition-badge {
+    background: #16101f;
+}
+
+body.round-1 .drink-card::after {
+    content: "Astral";
+}
+
+body.round-2 .drink-card::after {
+    content: "Shakira";
+}
+
+body.round-3 .drink-card::after {
+    content: "Final";
+}
+
+body.round-1 .drink-card::before {
+    background:
+            radial-gradient(circle, rgba(255,255,255,.95) 0 2px, transparent 3px),
+            radial-gradient(circle, rgba(255,228,94,.9) 0 3px, transparent 5px);
+    background-size: 28px 28px, 70px 70px;
+}
+
+body.round-2 .drink-card::before {
+    background:
+            linear-gradient(45deg, rgba(255,255,255,.22) 25%, transparent 25%),
+            linear-gradient(-45deg, rgba(255,255,255,.22) 25%, transparent 25%);
+    background-size: 36px 36px;
+}
+
+body.round-3 .drink-card::before {
+    background:
+            radial-gradient(circle, rgba(255,255,255,.85) 0 3px, transparent 5px),
+            linear-gradient(135deg, rgba(255,255,255,.2), transparent);
+    background-size: 42px 42px, 100% 100%;
+}
+
+body.round-1 .drink-icon {
+    background: #fff8c4;
+}
+
+body.round-2 .drink-icon {
+    background: #ffd6ec;
+}
+
+body.round-3 .drink-icon {
+    background: #fff2a8;
+}
+
+.star-criteria {
+    grid-template-columns: 1fr;
+}
+
+.rating-group {
+    background: white;
+    border: 3px solid #21183d;
+    border-radius: 22px;
+    padding: 16px;
+    box-shadow: 0 7px 0 rgba(0,0,0,.14);
+}
+
+.rating-group span {
+    font-weight: 1000;
+    text-transform: uppercase;
+}
+
+.stars {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.star-btn {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    font-size: 2.4rem;
+    color: #b8addd;
+}
+
+.star-btn.active {
+    color: #ffe45e;
+    text-shadow: 0 3px 0 rgba(0,0,0,.25);
+}
+
+.player-card {
+    background: linear-gradient(135deg, #fff, #ffe45e);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 18px;
+    background: rgba(33,24,61,.18);
+    border: 3px solid #21183d;
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 12px 0;
+}
+
+.progress-bar div {
+    height: 100%;
+    background: linear-gradient(90deg, #ff3d8b, #6c38ff, #00d4ff);
+    border-radius: 999px;
+}
+
+.small-btn {
+    padding: 10px 14px;
+    font-size: .85rem;
+    margin-top: 8px;
+}
+
+.selected-card {
+    outline: 6px solid #3cffb5;
+    transform: translateY(-6px) rotate(-1deg) scale(1.03);
+}
+
+.tap-hint {
+    background: #3cffb5 !important;
+}
+
+label:has(#drinkSelect) {
+    display: none;
+}
+
+
+.selected-card::after {
+    content: "Seleccionado";
+    background: #3cffb5;
+}
+
+.disabled-card::after {
+    content: "Votado";
+}
