@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ranking — Copa de Cócteles</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="ranking-body">
+  <nav class="top-nav">
+        <a href="index.html">Votar</a>
+    <a href="ranking.html?screen=1">Modo pantalla</a>
+  </nav>
+
+  <main class="tv-frame">
+    <header class="tv-header">
+      <div>
+        <p class="eyebrow">Ranking en vivo</p>
+        <h1>Copa de Cócteles</h1>
+      </div>
+      <div id="roundName" class="round-badge"></div>
+    </header>
+
+    <section class="tv-grid">
+      <div class="tv-card big">
+        <h2>Ranking general</h2>
+        <div id="generalRanking"></div>
+      </div>
+
+      <div class="tv-card big">
+        <h2>Ronda actual</h2>
+        <div id="roundRanking"></div>
+      </div>
+
+      <div class="tv-card">
+        <h2>Participación</h2>
+        <div id="participation"></div>
+      </div>
+
+      <div class="tv-card">
+        <h2>Último voto</h2>
+        <div id="lastVote"></div>
+      </div>
+    </section>
+
+    <section id="roundsSection" class="tv-card hidden">
+      <h2>Resultados por ronda</h2>
+      <div id="roundsRanking" class="rounds-grid"></div>
+    </section>
+
+    <section id="awardsSection" class="tv-card hidden">
+      <h2>Premios especiales</h2>
+      <div id="specialAwards" class="awards-grid"></div>
+    </section>
+
+    <div id="revealControls" class="reveal-controls hidden">
+      <button id="revealBtn">🎉 Revelar resultados</button>
+      <button id="backToLiveBtn" class="secondary-btn hidden">Volver al ranking en vivo</button>
+    </div>
+
+    <section id="finalSection" class="final-card hidden">
+      <p>Campeón general</p>
+      <h2 id="finalWinner"></h2>
+      <span id="finalPoints"></span>
+    </section>
+
+    <section id="revealOverlay" class="reveal-overlay hidden">
+      <p>Copa de Cócteles</p>
+      <h2 id="revealNumber"></h2>
+      <h3 id="revealWinner"></h3>
+      <span id="revealPoints"></span>
+    </section>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

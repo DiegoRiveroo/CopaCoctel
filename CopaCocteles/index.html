@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Copa de Cócteles</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="index.html">Votar</a>
+    <a href="ranking.html">Ranking</a>
+  </nav>
+
+  <div class="page">
+    <header class="hero">
+      <p class="eyebrow">Cumple de Diego</p>
+      <h1>Copa de Cócteles</h1>
+      <p class="subtitle">Probá los tragos de la ronda y votá por sabor, presentación y concepto.</p>
+    </header>
+
+    <section class="panel live-panel">
+      <div>
+        <p class="label">Ronda activa</p>
+        <h2 id="activeRound">Cargando...</h2>
+        <p id="votingStatus" class="status-pill">Estado</p>
+      </div>
+      <button id="refreshBtn" type="button">Actualizar</button>
+    </section>
+
+    <section class="panel vote-panel">
+      <h2>Votar ronda activa</h2>
+      <form id="voteForm">
+        <label>
+          Código de invitado
+          <input name="guestCode" required placeholder="Ej: JU2533" />
+        </label>
+
+        <small class="help-text">
+          ¿Cuál es tu código? Usa las dos primeras letras de tu nombre y los últimos 4 dígitos de tu DNI.
+        </small>
+
+        <div id="guestProgress" class="guest-progress"></div>
+
+        <label>
+          Trago
+          <select name="drinkId" id="drinkSelect" required></select>
+        </label>
+
+        <div class="criteria star-criteria">
+          <div class="rating-group" data-input="taste">
+            <span>Sabor</span>
+            <div class="stars"></div>
+            <input name="taste" type="hidden" required />
+          </div>
+
+          <div class="rating-group" data-input="presentation">
+            <span>Presentación</span>
+            <div class="stars"></div>
+            <input name="presentation" type="hidden" required />
+          </div>
+
+          <div class="rating-group" data-input="concept">
+            <span>Concepto</span>
+            <div class="stars"></div>
+            <input name="concept" type="hidden" required />
+          </div>
+        </div>
+
+        <button type="submit">Enviar voto</button>
+        <p id="voteStatus" class="form-status"></p>
+      </form>
+    </section>
+
+    <section class="panel drinks-panel">
+      <h2>Tragos de la ronda</h2>
+      <div id="drinksGrid" class="drinks-grid"></div>
+    </section>
+
+    <section class="panel ranking-panel">
+      <h2>Ranking general</h2>
+      <div id="ranking"></div>
+    </section>
+  </div>
+
+  <script src="script.js?v=2"></script>
+</body>
+</html>
